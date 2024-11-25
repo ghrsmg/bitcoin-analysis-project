@@ -1,0 +1,4 @@
+- Loads Bitcoin historical data from CoinGecko API
+- Preprocesses data and adds simple features
+- Trains a model and predicts future prices
+- Visualizes data and predictions
