@@ -1,22 +1,33 @@
 from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
 import numpy as np
+import pandas as pd
 
+def predict_prices(data, future_days=730):
+    """
+    Predict Bitcoin prices using a linear regression model.
+    Predictions start from the last known close price.
+    """
+    # Prepare data for prediction
+    X = np.arange(len(data)).reshape(-1, 1)
+    y = data['Close'].values
 
-def train_model(df):
-    # Using price_diff as feature to predict future price
-    X = df[['price_diff']].shift(1).fillna(0).values
-    y = df['price'].values
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
-
+    # Train model
     model = LinearRegression()
-    model.fit(X_train, y_train)
-    return model
+    model.fit(X, y)
 
+    # Predict future prices
+    future_X = np.arange(len(data), len(data) + future_days).reshape(-1, 1)
+    future_predictions = model.predict(future_X)
 
-def predict(model, df):
-    X = df[['price_diff']].shift(1).fillna(0).values
-    predictions = model.predict(X)
-    df['predicted_price'] = predictions
-    return df
+    # Adjust predictions to start from the last known price
+    last_price = y[-1]
+    prediction_diff = future_predictions[0] - last_price
+    adjusted_predictions = future_predictions - prediction_diff
+
+    # Generate future dates
+    last_date = data.index[-1]
+    future_dates = [last_date + pd.Timedelta(days=i) for i in range(1, future_days + 1)]
+
+    # Combine predictions with dates
+    future_df = pd.DataFrame({'Date': future_dates, 'Predicted Close': adjusted_predictions})
+    return future_df
