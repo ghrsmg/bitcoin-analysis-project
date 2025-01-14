@@ -1,25 +1,32 @@
 import streamlit as st
 from src.data_loader import load_data
 from src.data_preprocessing import preprocess_data
-from src.model import train_model, predict
-from src.visualization import plot_data, plot_predictions
+from src.model import predict_prices
+from src.vizualization import plot_historical_prices, plot_predictions
 
-st.title("Bitcoin Price Prediction App")
+# Streamlit App
+st.title("Bitcoin Data Analysis and Predictions")
 
-# Load and display the data
-data = load_data(from_api=True)
-st.subheader("Bitcoin Price Data")
-st.write(data.head())
+# Load Data
+data_path = "C:/Users/ASUS/Desktop/projects/bitcoin-analysis-project/data/btcusd_1-min_data.csv"
+data = load_data(data_path)
 
-# Preprocess and visualize the data
-processed_data = preprocess_data(data)
-st.subheader("Historical Price Chart")
-plot_data(processed_data)
+# Preprocess Data
+daily_data = preprocess_data(data)
 
-# Train model and make predictions
-model = train_model(processed_data)
-predicted_data = predict(model, processed_data)
+# Display Data
+st.subheader("Bitcoin Data Till Today")
+st.write(daily_data)
 
-# Display predictions
-st.subheader("Predicted vs. Historical Prices")
-plot_predictions(predicted_data)
+# Plot Historical Data
+st.subheader("Historical Bitcoin Prices")
+plot_historical_prices(daily_data)
+
+# Predictions
+st.subheader("Price Predictions for the next years")
+predictions = predict_prices(daily_data, future_days=1095+3650)  # 2 years
+st.write(predictions)
+
+# Plot Predictions
+plot_predictions(daily_data, predictions)
+

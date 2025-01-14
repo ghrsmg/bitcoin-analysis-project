@@ -1,11 +1,11 @@
 import pandas as pd
 
-
-def preprocess_data(df):
-    # Set timestamp as index for better analysis
-    df.set_index('timestamp', inplace=True)
-
-    # Adding additional features for prediction
-    df['price_diff'] = df['price'].diff()  # Price change
-    df.dropna(inplace=True)  # Remove any NA values
-    return df
+def preprocess_data(data):
+    """
+    Resample and clean the Bitcoin dataset for analysis.
+    """
+    # Resample to daily data for aggregation
+    data = data.set_index('Timestamp')
+    daily_data = data.resample('D').mean()
+    daily_data = daily_data.dropna()
+    return daily_data
