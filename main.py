@@ -24,9 +24,8 @@ plot_historical_prices(daily_data)
 
 # Predictions
 st.subheader("Price Predictions for the next years")
-predictions = predict_prices(daily_data, future_days=1095+3650)  # 2 years
+predictions = predict_prices(daily_data, future_days=1095 + 3650)
 st.write(predictions)
 
 # Plot Predictions
 plot_predictions(daily_data, predictions)
-

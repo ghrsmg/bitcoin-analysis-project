@@ -22,17 +22,15 @@ Predictions start from the last known price, ensuring a realistic continuation o
 User-friendly web interface for:
 Exploring historical data.
 Viewing prediction trends for the next two years.
-Interacting with visualizations dynamically.
 
 ## Setup
 Steps to Set Up the Application
 Clone the Repository
 
 git clone https://github.com/your-username/bitcoin-price-prediction.git
-cd bitcoin-price-prediction
-
+navigate from cmd to the file with the project
 Create a Virtual Environment
-venv\Scripts\activate
+.\venv\Scripts\activate
 
 Install Dependencies
 pip install -r requirements.txt
