@@ -4,6 +4,7 @@ def load_data(filepath):
     """
     Load the Bitcoin dataset from the given CSV file.
     """
-    data = pd.read_csv(filepath)
-    data['Timestamp'] = pd.to_datetime(data['Timestamp'], unit='s')
+    # Load data and parse the 'Timestamp' column as datetime
+    data = pd.read_csv(filepath, parse_dates=['Timestamp'])
+    data.set_index('Timestamp', inplace=True)
     return data

@@ -1,6 +1,5 @@
 import streamlit as st
 from src.data_loader import load_data
-from src.data_preprocessing import preprocess_data
 from src.model import predict_prices
 from src.vizualization import plot_historical_prices, plot_predictions
 
@@ -8,11 +7,11 @@ from src.vizualization import plot_historical_prices, plot_predictions
 st.title("Bitcoin Data Analysis and Predictions")
 
 # Load Data
-data_path = "C:/Users/ASUS/Desktop/projects/bitcoin-analysis-project/data/btcusd_1-min_data.csv"
+data_path = "C:/Users/ASUS/Desktop/projects/bitcoin-analysis-project/data/data_by_day.csv"
 data = load_data(data_path)
 
 # Preprocess Data
-daily_data = preprocess_data(data)
+daily_data = data
 
 # Display Data
 st.subheader("Bitcoin Data Till Today")
