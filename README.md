@@ -4,12 +4,14 @@ A comprehensive Streamlit-based application to analyze historical Bitcoin price 
 ## Features
 1. Data Handling
 
-Loads large-scale historical Bitcoin data from a CSV file (e.g., btcusd_1-min_data.csv).
+Loads large-scale historical Bitcoin data from a CSV file.
+
 Efficient preprocessing to handle extensive datasets.
 
 2. Visualization
 
-Interactive visualizations of historical Bitcoin prices.
+visualizations of historical Bitcoin prices.
+
 Future predictions plotted alongside historical data for comparison.
 
 3. Machine Learning Model
