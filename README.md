@@ -28,11 +28,18 @@ Steps to Set Up the Application
 Clone the Repository
 
 git clone https://github.com/your-username/bitcoin-price-prediction.git
-navigate from cmd to the file with the project
+
+navigate from cmd to the file with the project 
+
 Create a Virtual Environment
+
 .\venv\Scripts\activate
 
 Install Dependencies
+
 pip install -r requirements.txt
 
-Run the Application (streamlit run main.py)
+might need to install sklearn.linear_model directly from the IDE
+
+Run the Application (streamlit run main.py in cmd)
+
