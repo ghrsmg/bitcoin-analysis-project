@@ -31,7 +31,7 @@ git clone https://github.com/your-username/bitcoin-price-prediction.git
 
 navigate from cmd to the file with the project 
 
-Create a Virtual Environment
+Create a Virtual Environment (python -m venv venv)
 
 .\venv\Scripts\activate
 
