@@ -7,7 +7,7 @@ from src.vizualization import plot_historical_prices, plot_predictions
 st.title("Bitcoin Data Analysis and Predictions")
 
 # Load Data
-data_path = "C:/Users/ASUS/Desktop/projects/bitcoin-analysis-project/data/data_by_day.csv"
+data_path = "data/data_by_day.csv"
 data = load_data(data_path)
 
 # Preprocess Data
