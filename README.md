@@ -34,5 +34,5 @@ Create a Virtual Environment
 
 Install Dependencies
 pip install -r requirements.txt
-
+might need to install sklearn.linear_model directly from the IDE
 Run the Application (streamlit run main.py)
